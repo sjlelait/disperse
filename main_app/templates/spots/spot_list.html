@@ -1,0 +1,15 @@
+{% extends 'base.html %}
+
+{% block title %}
+<title>Spot List</title>
+{% endblock %}
+
+{% block content %}
+<h1>Your Spots</h1>
+{% for spot in object_list %}
+<a href="{% url 'spot_detail' spot.id %}"></a>
+    <h2>{{spot.name}}</h2>
+    <p>{{spot.description}}</p>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if object %}
+        <title>Update {{ object.name }}</title>
+    {% else %}
+        <title>Add a Spot</title>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if object %}
+        <h1>Update {{ object.name }}</h1>
+    {% else %}
+        <h1>Add A New Spot</h1>
+    {% endif %}
+
+
+<form method="POST">
+    {% csrf_token %}
+    <table>        
+        {{ form }}
+    </table>
+    <input type="submit" value="Submit" class="btn blue">
+</form>
+
+{% endblock %}
