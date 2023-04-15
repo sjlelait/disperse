@@ -22,3 +22,13 @@ class SpotDetail(LoginRequiredMixin, DetailView):
     model = Spot
     fields = '__all__'
     template_name = 'spots/spot_detail.html'
+
+class SpotUpdate(LoginRequiredMixin, UpdateView):
+    model = Spot
+    fields = ['name', 'description', 'zipcode', 'latitude', 'longitude']
+    template_name = 'spots/spot_form.html'
+
+class SpotDelete(LoginRequiredMixin, DeleteView):
+    model = Spot
+    success_url = '/spots/'
+    template_name = 'spots/spot_confirm_delete.html'

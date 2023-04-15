@@ -24,6 +24,7 @@
                 <a class="left brand-logo" href="{% url 'home' %}">Disperse</a>
                 <ul class="right">
                     {% if user.is_authenticated %}
+                    <li><a href="{% url 'spot_list' %}">My Spots</a></li>
                     <li>Resources</li>
                     <li><a href="{% url 'logout' %}">Log Out</a></li>
                     {% else %}

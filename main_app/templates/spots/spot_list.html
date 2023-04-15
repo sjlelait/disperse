@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block content %}
-<h1>Your Spots</h1>
+<h1>My Spots</h1>
 {% for spot in object_list %}
 <a href="{% url 'spot_detail' spot.id %}">
     <h2>{{spot.name}}</h2>
-    <p>{{spot.description}}</p>
 </a>
+<p>{{spot.description}}</p>
 {% endfor %}
 
 {% endblock %}
