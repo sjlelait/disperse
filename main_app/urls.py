@@ -8,4 +8,5 @@ urlpatterns = [
     path('spots/<int:pk>/', views.SpotDetail.as_view(), name='spot_detail'),
     path('spots/<int:pk>/update/', views.SpotUpdate.as_view(), name='spot_update'),
     path('spots/<int:pk>/delete/', views.SpotDelete.as_view(), name='spot_delete'),
+    path('spots/create/', views.SpotCreate.as_view(), name='spot_create'),
 ]

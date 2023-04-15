@@ -25,6 +25,7 @@
                 <ul class="right">
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'spot_list' %}">My Spots</a></li>
+                    <li><a href="{% url 'spot_create' %}">Add A Spot</a></li>
                     <li>Resources</li>
                     <li><a href="{% url 'logout' %}">Log Out</a></li>
                     {% else %}
