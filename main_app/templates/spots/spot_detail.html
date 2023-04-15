@@ -10,6 +10,9 @@
         <span class="card-title">{{ spot.name }}</span>
         <p>{{ spot.description }}</p>
     </div>
+    <div class="card-panel">
+        
+    </div>
     <div class="card-action">
         <a href="{% url 'spot_update' spot.id %}">Edit</a>
         <a href="{% url 'spot_delete' spot.id %}">Delete</a>
