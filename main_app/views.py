@@ -13,7 +13,12 @@ def home(request):
 
 
 
-class SpotList(ListView):
+class SpotList(LoginRequiredMixin, ListView):
     model = Spot
     fields = '__all__'
     template_name = 'spots/spot_list.html'
+
+class SpotDetail(LoginRequiredMixin, DetailView):
+    model = Spot
+    fields = '__all__'
+    template_name = 'spots/spot_detail.html'

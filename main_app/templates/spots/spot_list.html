@@ -1,4 +1,4 @@
-{% extends 'base.html %}
+{% extends 'base.html' %}
 
 {% block title %}
 <title>Spot List</title>
@@ -7,9 +7,10 @@
 {% block content %}
 <h1>Your Spots</h1>
 {% for spot in object_list %}
-<a href="{% url 'spot_detail' spot.id %}"></a>
+<a href="{% url 'spot_detail' spot.id %}">
     <h2>{{spot.name}}</h2>
     <p>{{spot.description}}</p>
+</a>
 {% endfor %}
 
 {% endblock %}
