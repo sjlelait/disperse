@@ -6,6 +6,7 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
 <h1>Hey {{user.username}}</h1>
 <h2>Get Lost In The Right Direction</h2>
 <ul>
@@ -13,5 +14,12 @@
     <li><a href="{% url 'spot_create' %}">Add A Spot</a></li>
     <li><a href="{% url 'resources' %}">Resources</a></li>
 </ul>
+    {% else %}
+<h1>Get Lost In The Right Direction</h1>
+<ul>
+    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+    <li><a href="{% url 'login' %}">Log In</a></li>
+</ul>
+    {% endif %}
 
 {% endblock %}

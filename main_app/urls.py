@@ -11,4 +11,5 @@ urlpatterns = [
     path('spots/<int:pk>/delete/', views.SpotDelete.as_view(), name='spot_delete'),
     path('spots/create/', views.SpotCreate.as_view(), name='spot_create'),
     path('accounts/signup/', views.signup, name='signup'),
+    path('spots/<int:spot_id>/add_photo/', views.add_photo, name='add_photo'),
 ]

@@ -6,7 +6,13 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Spot
+from .models import Spot, Photo
+
+import uuid
+import boto3
+
+S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
+BUCKET = 'disperse-sjl'
 
 # Create your views here.
 def home(request):
@@ -28,6 +34,21 @@ def signup(request):
             error_message = 'Invalid Signup - Try Again'
     form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form, 'error': error_message})
+
+
+def add_photo(request, spot_id):
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        try:
+            s3.upload_fileobj(photo_file, BUCKET, key)
+            url = f"{S3_BASE_URL}{BUCKET}/{key}"
+            Photo.objects.create(url=url, spot_id=spot_id)
+        except Exception as error:
+            print('Photo Upload Failed')
+            print(error)
+    return redirect('spot_detail', pk=spot_id)
 
 
 class SpotList(LoginRequiredMixin, ListView):

@@ -14,5 +14,20 @@
         <a href="{% url 'spot_update' spot.id %}">Edit</a>
         <a href="{% url 'spot_delete' spot.id %}">Delete</a>
     </div>
+    {% for photo in spot.photo_set.all %}
+        <img src="{{ photo.url }}" alt="{{ spot.name }}" class="responsive-img card-panel">
+        {% empty %}
+        <div class="card-panel red-text center-align">No Photos Uploaded</div>
+        {% endfor %}
+        <form 
+            action="{% url 'add_photo' spot.id %}" 
+            method="POST" 
+            class="card-panel" 
+            enctype="multipart/form-data"
+        >
+            {% csrf_token %}
+            <input type="file" name="photo-file">
+            <input class="btn orange" type="submit" value="Upload Photo">
+        </form>
 </div>
 {% endblock %}
