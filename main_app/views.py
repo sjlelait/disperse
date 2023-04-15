@@ -12,6 +12,9 @@ from .models import Spot
 def home(request):
     return render(request, 'home.html')
 
+def resources(request):
+    return render(request, 'resources.html')
+
 
 def signup(request):
     error_message = ''

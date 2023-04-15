@@ -6,6 +6,12 @@
 
 {% block content %}
 
-<h1>Disperse Home</h1>
+<h1>Hey {{user.username}}</h1>
+<h2>Get Lost In The Right Direction</h2>
+<ul>
+    <li><a href="{% url 'spot_list' %}">My Spots</a></li>
+    <li><a href="{% url 'spot_create' %}">Add A Spot</a></li>
+    <li><a href="{% url 'resources' %}">Resources</a></li>
+</ul>
 
 {% endblock %}
