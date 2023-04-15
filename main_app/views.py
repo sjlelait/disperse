@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Spot
@@ -12,11 +13,28 @@ def home(request):
     return render(request, 'home.html')
 
 
+def signup(request):
+    error_message = ''
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('spot_list')
+        else:
+            error_message = 'Invalid Signup - Try Again'
+    form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form, 'error': error_message})
+
 
 class SpotList(LoginRequiredMixin, ListView):
     model = Spot
     fields = '__all__'
     template_name = 'spots/spot_list.html'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(user=self.request.user)
 
 class SpotDetail(LoginRequiredMixin, DetailView):
     model = Spot
