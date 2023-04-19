@@ -11,7 +11,7 @@
     <div class="col-sm-6">
         <div class="card">
             <a href="{% url 'spot_detail' spot.id %}">
-                <img class="card-img-top" src="{{ spot.id.photo.url }}" alt="Card image cap">
+                <img class="card-img-top" src="{{ spot.image.url }}" alt="{{ spot.title }}">
             </a>
             <div class="card-body">
                 <h4 class="card-title">{{spot.name}}</h4>

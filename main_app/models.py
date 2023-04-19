@@ -2,6 +2,9 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 
+# installed Pillow for images
+from PIL import Image
+
 # Create your models here.
 
 class Spot(models.Model):
@@ -11,6 +14,7 @@ class Spot(models.Model):
     latitude = models.DecimalField(max_digits=10, decimal_places=7)
     longitude = models.DecimalField(max_digits=10, decimal_places=7)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='spot_images', blank=True, null=True)
 
     def __str__(self):
         return self.name

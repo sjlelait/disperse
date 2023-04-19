@@ -46,8 +46,11 @@ def add_photo(request, spot_id):
         key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
         try:
             s3.upload_fileobj(photo_file, BUCKET, key)
-            url = f"{S3_BASE_URL}{BUCKET}/{key}"
-            Photo.objects.create(url=url, spot_id=spot_id)
+            url = f"{S3_BASE_URL}/{BUCKET}/{key}"
+            spot = Spot.objects.get(id=spot_id)
+            spot.image = url
+            spot.save()
+            print(f"Image uploaded to S3 and saved to Spot object with URL: {url}")
         except Exception as error:
             print('Photo Upload Failed')
             print(error)
