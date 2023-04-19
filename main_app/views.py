@@ -10,6 +10,9 @@ from .models import Spot, Photo
 
 import uuid
 import boto3
+import os
+import requests
+import datetime
 
 S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
 BUCKET = 'disperse-sjl'
@@ -50,7 +53,6 @@ def add_photo(request, spot_id):
             print(error)
     return redirect('spot_detail', pk=spot_id)
 
-
 class SpotList(LoginRequiredMixin, ListView):
     model = Spot
     fields = '__all__'
@@ -64,6 +66,34 @@ class SpotDetail(LoginRequiredMixin, DetailView):
     model = Spot
     fields = '__all__'
     template_name = 'spots/spot_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        api_key = os.getenv('API_KEY')
+        zip_code = self.object.zipcode
+        url = f"http://api.weatherapi.com/v1/forecast.json?key={api_key}&q={zip_code}&days=3&aqi=no&alerts=no"
+        response = requests.get(url)
+        data = response.json()
+
+    # extract the forecast data for the next 5 days
+        forecast = []
+        for day in data["forecast"]["forecastday"]:
+            forecast_day = {}
+            forecast_day["date"] = datetime.datetime.strptime(day["date"], "%Y-%m-%d").strftime("%a, %b %d")
+            forecast_day["icon"] = day["day"]["condition"]["icon"]
+            forecast_day["condition"] = day["day"]["condition"]["text"]
+            forecast_day["high"] = day["day"]["maxtemp_f"]
+            forecast_day["low"] = day["day"]["mintemp_f"]
+            forecast_day["sunrise"] = day["astro"]["sunrise"]
+            forecast_day["sunset"] = day["astro"]["sunset"]
+            forecast.append(forecast_day)
+
+        context['forecast'] = data['forecast']['forecastday']
+
+        print(data)
+        return context
+
+        
 
 class SpotUpdate(LoginRequiredMixin, UpdateView):
     model = Spot
