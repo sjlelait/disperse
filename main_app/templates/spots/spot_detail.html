@@ -6,16 +6,24 @@
 
 {% block content %}
 <div class="card">
-    <div class="card-header">
-        <h3>{{ spot.name }}</h3>
-        <h6 class="card-subtitle mb-2 text-muted">3 Day Forecast</h6>
+    <h2 class="spot_name">{{ spot.name }}</h2>
+    <h5 class="card-subtitle mb-2 text-muted">3 Day Forecast</h5>
+    <div class="row">
         {% for day in forecast %}
-        <div class="weather-data">
-            <p>{{ day.date|date:"D, M d" }}</p>
-            <p>{{ day.day.condition.text }}</p>
-            <img src="{{ day.day.condition.icon }}" alt="{{ day.day.condition.text }}">
-            <p>High: {{ day.day.maxtemp_f }}°F</p>
-            <p>Low: {{ day.day.mintemp_f }}°F</p>
+        <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="weather-data">
+                    <p>{{ day.date }}</p>
+                    <p>{{ day.day.condition.text }}</p>
+                    <img src="{{ day.day.condition.icon }}" alt="{{ day.day.condition.text }}">
+                    <p>High: {{ day.day.maxtemp_f }}°F</p>
+                    <p>Low: {{ day.day.mintemp_f }}°F</p>
+                    <p>Sunrise at {{ day.astro.sunrise }}</p>
+                    <p>Sunset at {{ day.astro.sunset }}</p>
+                </div>
+              </div>
+            </div>
         </div>
         {% endfor %}
         </div>
