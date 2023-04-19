@@ -14,7 +14,7 @@ import os
 import requests
 import datetime
 
-S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
+S3_BASE_URL = "https://s3.us-east-2.amazonaws.com/"
 BUCKET = 'disperse-sjl'
 
 # Create your views here.
@@ -46,9 +46,9 @@ def add_photo(request, spot_id):
         key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
         try:
             s3.upload_fileobj(photo_file, BUCKET, key)
-            url = f"{S3_BASE_URL}/{BUCKET}/{key}"
+            url = f"{S3_BASE_URL}{BUCKET}/{key}"
             spot = Spot.objects.get(id=spot_id)
-            spot.image = url
+            spot.image = key
             spot.save()
             print(f"Image uploaded to S3 and saved to Spot object with URL: {url}")
         except Exception as error:

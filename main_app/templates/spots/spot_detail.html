@@ -37,7 +37,7 @@
         <a href="{% url 'spot_delete' spot.id %}">Delete</a>
     </div>
     {% for photo in spot.photo_set.all %}
-        <img src="{{ photo.imgae.url }}" alt="{{ spot.name }}" class="responsive-img card-panel">
+        <img src="https://s3.amazonaws.com/{{ BUCKET }}/{{ photo }}" alt="{{ spot.name }}" class="responsive-img card-panel">
         {% empty %}
         <div class="card-panel red-text center-align">No Photos Uploaded</div>
         {% endfor %}

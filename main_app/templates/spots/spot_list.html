@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block content %}
-<h1>My Spots</h1>
+<h1>My Spots</h1> 
 {% for spot in object_list %}
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
             <a href="{% url 'spot_detail' spot.id %}">
-                <img class="card-img-top" src="{{ spot.image.url }}" alt="{{ spot.title }}">
+                <img class="card-img-top" src="https://s3.us-east-2.amazonaws.com/disperse-sjl/{{ spot.image.name }}" alt="{{ spot.title }}">
             </a>
             <div class="card-body">
                 <h4 class="card-title">{{spot.name}}</h4>
