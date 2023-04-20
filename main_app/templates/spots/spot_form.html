@@ -15,13 +15,29 @@
         <h1>Add A New Spot</h1>
     {% endif %}
 
-
 <form method="POST">
     {% csrf_token %}
-    <table>        
-        {{ form }}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td></td>
+            <td>
+                <button type="button" id="find-location-btn">Find My Location</button>
+            </td>
+        </tr>
     </table>
     <input type="submit" value="Submit" class="btn blue">
 </form>
 
+<script>
+    const findLocationBtn = document.querySelector('#find-location-btn');
+    findLocationBtn.addEventListener('click', () => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const latitudeField = document.querySelector('#id_latitude');
+            const longitudeField = document.querySelector('#id_longitude');
+            latitudeField.value = position.coords.latitude.toFixed(7);
+            longitudeField.value = position.coords.longitude.toFixed(7);
+        });
+    });
+</script>
 {% endblock %}
