@@ -6,6 +6,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import SpotForm
 from .models import Spot, Photo
 
 import uuid
@@ -106,9 +107,10 @@ class SpotDelete(LoginRequiredMixin, DeleteView):
     template_name = 'spots/spot_confirm_delete.html'
 
 class SpotCreate(CreateView):
-  model = Spot
-  fields = ['name', 'description', 'zipcode', 'latitude', 'longitude']
-  template_name = 'spots/spot_form.html'
-  def form_valid(self, form):
-    form.instance.user = self.request.user 
-    return super().form_valid(form)
+    model = Spot
+    form_class = SpotForm
+    template_name = 'spots/spot_form.html'
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user 
+        return super().form_valid(form)
