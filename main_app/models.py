@@ -23,8 +23,9 @@ class Spot(models.Model):
         return reverse('spot_detail', kwargs={'pk': self.id})
 
 class Photo(models.Model):
-    url = models.CharField(max_length=200)
     spot = models.ForeignKey(Spot, on_delete=models.CASCADE)
-
+    image = models.ImageField(upload_to='spot_images', blank=True, null=True)
+    url = models.URLField(blank=True, null=True)
+    
     def __str__(self):
-        return f"Photo for spot_id': {self.spot_id} @{self.url}"
+        return f"Photo for spot_id': {self.spot.name} - {self.image.name}"
