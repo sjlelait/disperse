@@ -14,6 +14,7 @@ import boto3
 import os
 import requests
 import datetime
+import folium
 
 S3_BASE_URL = "https://s3.us-east-2.amazonaws.com/"
 BUCKET = 'disperse-sjl'
@@ -72,13 +73,26 @@ class SpotDetail(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        latitude = self.object.latitude
+        longitude = self.object.longitude
+
+        #folium map w/ marker
+        map = folium.Map(location=[latitude, longitude], zoom_start=13)
+
+        folium.Marker(
+            location=[latitude, longitude],
+            popup='Your Location',
+            icon=folium.Icon(color='red')
+        ).add_to(map)
+
+        context['map'] = map._repr_html_()
+
         api_key = os.getenv('API_KEY')
         zip_code = self.object.zipcode
         url = f"http://api.weatherapi.com/v1/forecast.json?key={api_key}&q={zip_code}&days=3&aqi=no&alerts=no"
         response = requests.get(url)
         data = response.json()
 
-    # extract the forecast data for the next 5 days
         forecast = []
         for day in data["forecast"]["forecastday"]:
             forecast_day = {}
