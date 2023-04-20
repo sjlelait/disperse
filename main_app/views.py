@@ -106,11 +106,11 @@ class SpotDelete(LoginRequiredMixin, DeleteView):
     success_url = '/spots/'
     template_name = 'spots/spot_confirm_delete.html'
 
-class SpotCreate(CreateView):
+class SpotCreate(LoginRequiredMixin, CreateView):
     model = Spot
     form_class = SpotForm
     template_name = 'spots/spot_form.html'
-    
+
     def form_valid(self, form):
         form.instance.user = self.request.user 
         return super().form_valid(form)
