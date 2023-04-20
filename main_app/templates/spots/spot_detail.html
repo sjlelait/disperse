@@ -6,7 +6,10 @@
 
 {% block content %}
 <div class="card">
-    <h2 class="spot_name">{{ spot.name }}</h2>
+    <h2 class="card_title">{{ spot.name }}</h2>
+    <div class="card-content">
+        <p>{{ spot.description }}</p>
+    </div>
     <h5 class="card-subtitle mb-2 text-muted">3 Day Forecast</h5>
     <div class="row">
         {% for day in forecast %}
@@ -28,10 +31,7 @@
         {% endfor %}
         </div>
     </div>
-        <div class="card-content">
-            <span class="card-title">{{ spot.name }}</span>
-            <p>{{ spot.description }}</p>
-        </div>
+        
     <div class="card-action">
         <a href="{% url 'spot_update' spot.id %}">Edit</a>
         <a href="{% url 'spot_delete' spot.id %}">Delete</a>
