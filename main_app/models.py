@@ -29,3 +29,5 @@ class Photo(models.Model):
     
     def __str__(self):
         return f"Photo for spot_id': {self.spot.name} - {self.image.name}"
+
+

@@ -1,0 +1,25 @@
+body {
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.footer {
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+}
+
+.card-img-top {
+    width: 2rem;
+    height: 2rem;
+}
