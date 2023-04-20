@@ -28,6 +28,6 @@ class Photo(models.Model):
     url = models.URLField(blank=True, null=True)
     
     def __str__(self):
-        return f"Photo for spot_id': {self.spot.name} - {self.image.name}"
+        return f"Photo for: {self.spot.name} - {self.url}"
 
 

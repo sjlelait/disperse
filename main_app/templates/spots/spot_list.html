@@ -11,7 +11,11 @@
     <div class="col-sm-6">
         <div class="card">
             <a href="{% url 'spot_detail' spot.id %}">
-            <img class="card-img-top" src="https://cdn-icons-png.flaticon.com/512/925/925619.png?w=740&t=st=1681952474~exp=1681953074~hmac=12f01c09a14a8508b03ae0025ed3d72adb78905b9ac8e816f10a673074f3d983">
+                {% if spot.photo_set.exists %}
+                <img src="{{ spot.photo_set.first.url|safe }}" alt="{{ spot.name }}" class="responsive-img card-panel">
+                {% else %}
+                <img class=“card-img-top” src=“https://cdn-icons-png.flaticon.com/512/925/925619.png?w=740&t=st=1681952474~exp=1681953074~hmac=12f01c09a14a8508b03ae0025ed3d72adb78905b9ac8e816f10a673074f3d983” alt="{{ spot.name }}">
+                {% endif %}            
             <div class="card-body">
                 <h4 class="card-title">{{spot.name}}</h4>
             </div>
