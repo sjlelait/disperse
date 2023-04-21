@@ -21,7 +21,18 @@ main {
     height: 3.5rem;
 }
 
+h1, h2 {
+    text-align: center;
+    color: rgb(51, 101, 33);
+}
+
 .card-img-top {
-    width: 2rem;
-    height: 2rem;
+    width: 100%; 
+    height: 12rem;
+    object-fit: cover;
+}
+
+.row {
+    display: flex-wrap;
+    margin: auto;
 }

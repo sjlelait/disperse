@@ -11,29 +11,33 @@
         <p>{{ spot.description }}</p>
     </div>
 
-    <div id="map" style="width: 100%; height: 400px;">
+    <div id="map" style="width: 20rem; height: 20rem;">
         <script>
             var spot = {
                 latitude: {{ spot.latitude }},
                 longitude: {{ spot.longitude }},
                 name: '{{ spot.name }}'
             };
-            // Create map with marker at specified coordinates
+            // map
             console.log(spot.longitude)
             var map = new mapboxgl.Map({
                 container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v11',
+                style: 'mapbox://styles/mapbox/outdoors-v11',
                 center: [{{ spot.longitude }}, {{ spot.latitude }}],
                 zoom: 12,
-                accessToken: 'pk.eyJ1Ijoic2psZWxhaXQiLCJhIjoiY2xncHoyY2RmMDhlZjNmc2J6YTFmYzF2MSJ9.Za5qko_uO3nqYMKwVx5H9g'
+                accessToken: 'pk.eyJ1Ijoic2psZWxhaXQiLCJhIjoiY2xncXB1djN3MWJ1bzNkbnR0NDJqcTIzZCJ9.SpO5kwka9XPZ-nJohTktKA'
             });
 
-            // Add a camping spot marker
+            map.addControl(new mapboxgl.NavigationControl({
+                position: 'top-right'
+                }));
+
+            // spot marker
             var marker = new mapboxgl.Marker()
                 .setLngLat([{{ spot.longitude }}, {{ spot.latitude }}])
                 .addTo(map);
 
-            // Add a popup with details about the camping spot
+            // popup wth spot details
             var popup = new mapboxgl.Popup()
                 .setHTML('<h3>{{spot.name}}</h3>')
                 .setMaxWidth('300px');

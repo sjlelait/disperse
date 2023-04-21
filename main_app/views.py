@@ -87,6 +87,7 @@ class SpotDetail(LoginRequiredMixin, DetailView):
 
         context['map'] = map._repr_html_()
 
+        # weather
         api_key = os.getenv('API_KEY')
         zip_code = self.object.zipcode
         url = f"http://api.weatherapi.com/v1/forecast.json?key={api_key}&q={zip_code}&days=3&aqi=no&alerts=no"

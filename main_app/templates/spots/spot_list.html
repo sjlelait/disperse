@@ -6,23 +6,23 @@
 
 {% block content %}
 <h1>My Spots</h1> 
-{% for spot in object_list %}
 <div class="row">
+    {% for spot in object_list %}   
     <div class="col-sm-6">
         <div class="card">
-            <a href="{% url 'spot_detail' spot.id %}">
-                {% if spot.photo_set.exists %}
-                <img class=“card-img-top” src="{{ spot.photo_set.first.url|safe }}" alt="{{ spot.name }}" class="responsive-img card-panel">
-                {% else %}
-                <img class=“card-img-top” src=“https://cdn-icons-png.flaticon.com/512/925/925619.png?w=740&t=st=1681952474~exp=1681953074~hmac=12f01c09a14a8508b03ae0025ed3d72adb78905b9ac8e816f10a673074f3d983” alt="{{ spot.name }}">
-                {% endif %}            
             <div class="card-body">
-                <h4 class="card-title">{{spot.name}}</h4>
+                <a href="{% url 'spot_detail' spot.id %}">
+                    <h4 class="card-title">{{spot.name}}</h4>
+                    {% if spot.photo_set.exists %}
+                    <img class="card-img-top img-fluid" src="{{ spot.photo_set.first.url|safe }}" alt="{{ spot.name }}" class="responsive-img card-panel">
+                    {% else %}
+                    <img class="card-img-top img-fluid" style="object-position: bottom left"src="/media/spot_images/camping_default.webp" alt="{{ spot.name }}">
+                    {% endif %}            
+                </a>
             </div>
-            </a>
         </div>
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
 
 {% endblock %}
