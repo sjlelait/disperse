@@ -1,6 +1,7 @@
 body {
-    height: 100%;
-    margin-bottom: 3.5rem;
+    background-image: url("/media/spot_images/disperse_background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100rem;
 }
 
 .wrapper {
@@ -13,17 +14,64 @@ main {
     flex-grow: 1;
 }
 
+.container {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.navbar-brand {
+    color: #94b640;
+    padding: .75rem;
+}
+
+.navbar-brand:hover {
+    color:#b3bf8b;
+}
+
+.navbar-toggler {
+    color:#acafa2;
+    margin: .5rem;
+}
+
+.nav-link {
+    color:#b8c0a3;
+}
+
+.home-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.home-buttons button {
+    background-color:#3a480b;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    margin: 2rem;
+}
+
+.home-buttons button:hover {
+    background-color: #778b34;
+}
+
 .footer {
     position: fixed;
     text-align: center;
     bottom: 0;
     width: 100%;
-    height: 3.5rem;
+    height: 3.75rem;
+}
+
+.footer-txt {
+    color:#c2cbac;
 }
 
 h1, h2 {
     text-align: center;
-    color: rgb(51, 101, 33);
+    color: #3f4f0b;
+    padding: 1.5rem;
 }
 
 .card-img-top {
@@ -35,4 +83,8 @@ h1, h2 {
 .row {
     display: flex-wrap;
     margin: auto;
+}
+
+ul {
+    list-style-type: none;
 }
