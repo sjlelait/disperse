@@ -31,13 +31,13 @@
                     };
                     // map
                     console.log(spot.longitude)
-                    var accessToken = os.getenv('MAPBOX_ACCESS_TOKEN')
+
                     var map = new mapboxgl.Map({
                         container: 'map',
                         style: 'mapbox://styles/mapbox/outdoors-v11',
                         center: [{{ spot.longitude }}, {{ spot.latitude }}],
                         zoom: 12,
-                        accessToken: accessToken
+                        accessToken: '{{ MAPBOX_ACCESS_TOKEN }}'
                     });
 
                     map.addControl(new mapboxgl.NavigationControl({

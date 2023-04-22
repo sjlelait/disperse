@@ -86,7 +86,8 @@ class SpotDetail(LoginRequiredMixin, DetailView):
         ).add_to(map)
 
         context['map'] = map._repr_html_()
-
+        context['MAPBOX_ACCESS_TOKEN'] = os.environ.get('MAPBOX_ACCESS_TOKEN')
+        
         # weather
         api_key = os.getenv('API_KEY')
         zip_code = self.object.zipcode
