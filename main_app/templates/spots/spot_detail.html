@@ -36,7 +36,7 @@
                         style: 'mapbox://styles/mapbox/outdoors-v11',
                         center: [{{ spot.longitude }}, {{ spot.latitude }}],
                         zoom: 12,
-                        accessToken: 'pk.eyJ1Ijoic2psZWxhaXQiLCJhIjoiY2xncXB1djN3MWJ1bzNkbnR0NDJqcTIzZCJ9.SpO5kwka9XPZ-nJohTktKA'
+                        accessToken: '{{ MAPBOX_ACCESS_TOKEN }}'
                     });
         
                     map.addControl(new mapboxgl.NavigationControl({
