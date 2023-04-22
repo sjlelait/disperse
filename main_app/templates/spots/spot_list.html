@@ -11,8 +11,8 @@
     <div class="col-sm-6" id="spot-card">
         <div class="card my-3">
             <div class="card-body">
+                <h4 class="card-title">{{spot.name}}</h4>
                 <a href="{% url 'spot_detail' spot.id %}">
-                    <h4 class="card-title">{{spot.name}}</h4>
                     {% if spot.photo_set.exists %}
                     <img class="card-img-top img-fluid" src="{{ spot.photo_set.first.url|safe }}" alt="{{ spot.name }}" class="responsive-img card-panel">
                     {% else %}

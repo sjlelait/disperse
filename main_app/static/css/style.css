@@ -26,6 +26,8 @@ main {
 .navbar-brand {
     color: #94b640;
     padding: .75rem;
+    font-family: 'Handlee', cursive;
+    font-size: x-large;
 }
 
 .navbar-brand:hover {
@@ -65,7 +67,7 @@ main {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-h1, h2 {
+h1, h2, h4 {
     text-align: center;
     color: #3f4f0b;
     padding: 1.5rem;
@@ -74,6 +76,7 @@ h1, h2 {
 h4.card-title {
     text-decoration: none;
     color: #3a480b;
+    padding: 1rem;
 }
 .card-img-top {
     width: 100%; 
@@ -122,6 +125,14 @@ input, textarea {
     margin: 0 auto;
 }
 
+h5 {
+    text-align: center;
+    color: #3f4f0b;
+    padding: 1rem;
+    width: 6rem;
+    background-color: rgb(209, 210, 207, 0.8);
+}
+
 .card-body {
     text-align: center;
 }
@@ -129,7 +140,12 @@ input, textarea {
 .weather-box {
     border: 1px;
     border-color: #3a480b;
-    padding: 2rem;
+    padding: 1.5rem;
+}
+
+#map {
+    border-color: #3a480b;
+    border-width: medium;
 }
 
 .footer {

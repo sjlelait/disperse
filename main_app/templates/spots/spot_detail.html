@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="spot-detail">
 <h2 class="spot-title">{{ spot.name }}</h2>    
 <div class="container">
     <div class="row">
@@ -61,7 +62,7 @@
 </div>    
     <div class="weather-box">
         <div class="row">
-            <h5 class="card-subtitle mb-2 text-muted">3 Day Forecast</h5>
+            <h5 class="card-subtitle mb-2">3 Day Forecast</h5>
             {% for day in forecast %}
             <div class="col-sm-4">
                 <div class="card" style="height: 13rem; max-width: 10rem">
@@ -108,5 +109,6 @@
             <input type="file" name="photo-file">
             <input class="btn btn-secondary" type="submit" value="Upload Photo">
         </form>
-
+</div>
 {% endblock %}
+
