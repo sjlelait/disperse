@@ -1,1 +1,1 @@
-web: gunicorn disperse.wsgi
+web: gunicorn disperse.wsgi.py
