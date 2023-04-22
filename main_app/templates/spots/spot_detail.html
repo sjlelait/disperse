@@ -31,6 +31,7 @@
                     };
                     // map
                     console.log(spot.longitude)
+
                     var map = new mapboxgl.Map({
                         container: 'map',
                         style: 'mapbox://styles/mapbox/outdoors-v11',
@@ -38,7 +39,7 @@
                         zoom: 12,
                         accessToken: '{{ MAPBOX_ACCESS_TOKEN }}'
                     });
-        
+
                     map.addControl(new mapboxgl.NavigationControl({
                         position: 'top-right'
                         }));
