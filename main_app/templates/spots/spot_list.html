@@ -8,8 +8,8 @@
 <h1>My Spots</h1> 
 <div class="row">
     {% for spot in object_list %}   
-    <div class="col-sm-6">
-        <div class="card">
+    <div class="col-sm-6" id="spot-card">
+        <div class="card my-3">
             <div class="card-body">
                 <a href="{% url 'spot_detail' spot.id %}">
                     <h4 class="card-title">{{spot.name}}</h4>

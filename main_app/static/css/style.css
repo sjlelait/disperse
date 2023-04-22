@@ -8,6 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+    margin-bottom: 4.5rem;
 }
 
 main {
@@ -17,6 +18,9 @@ main {
 .container {
     max-width: 60rem;
     margin: 0 auto;
+}
+.navbar {
+    width: 100%;
 }
 
 .navbar-brand {
@@ -52,8 +56,80 @@ main {
     margin: 2rem;
 }
 
-.home-buttons button:hover {
+.home-buttons button:hover, .btn:hover {
     background-color: #778b34;
+}
+
+.btn {
+    background-color:#3a480b;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #3f4f0b;
+    padding: 1.5rem;
+}
+
+h4.card-title {
+    text-decoration: none;
+    color: #3a480b;
+}
+.card-img-top {
+    width: 100%; 
+    height: 12rem;
+    object-fit: cover;
+}
+
+.row {
+    display: flex-wrap;
+    margin: auto;
+}
+
+div#spot-card > div.col-sm-6 > div.card > div.card-body {
+    padding: 2rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+label {
+    background-color:rgba(233, 233, 234, 0.7);
+    width: 6.25rem;
+}
+
+input, textarea {
+    background-color: rgb(220, 224, 227);
+}
+
+#spot-description {
+    text-align: center;
+}
+
+.weather-data p {
+    font-size: smaller;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    margin: 0;
+}
+
+.weather-img {
+    height: 2.25rem;
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.weather-box {
+    border: 1px;
+    border-color: #3a480b;
+    padding: 2rem;
 }
 
 .footer {
@@ -66,25 +142,4 @@ main {
 
 .footer-txt {
     color:#c2cbac;
-}
-
-h1, h2 {
-    text-align: center;
-    color: #3f4f0b;
-    padding: 1.5rem;
-}
-
-.card-img-top {
-    width: 100%; 
-    height: 12rem;
-    object-fit: cover;
-}
-
-.row {
-    display: flex-wrap;
-    margin: auto;
-}
-
-ul {
-    list-style-type: none;
 }

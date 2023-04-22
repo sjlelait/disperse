@@ -15,20 +15,19 @@
         <h1>Add A New Spot</h1>
     {% endif %}
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <button id="find-location-btn" class="btn btn-outline-dark">Find My Location</button>
-            </td>
-        </tr>
-    </table>
-    <input type="submit" value="Submit" class="btn btn-outline-dark">
-</form>
-
+    <form method=“POST” class="form">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            <tr>
+                <td></td>
+                <td>
+                    <button id=“find-location-btn” class="btn btn-secondary">Find My Location</button>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit" class="btn btn-secondary">
+    </form>
 <script>
     const findLocationBtn = document.querySelector('#find-location-btn');
     findLocationBtn.addEventListener('click', () => {
