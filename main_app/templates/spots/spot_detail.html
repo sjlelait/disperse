@@ -24,7 +24,6 @@
         </div>
         <div class="col-md-6">
             <div class="mx-auto" id="map" style="width: 20rem; height: 20rem;">
-                {% verbatim %}
                 <script>
                     var spot = {
                         latitude: {{ spot.latitude }},
@@ -57,7 +56,6 @@
                         .setMaxWidth('300px');
                     marker.setPopup(popup);
                 </script>
-                {% endverbatim %}
             </div>
         </div>
     </div>
