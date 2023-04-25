@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -116,6 +117,14 @@ class SpotUpdate(LoginRequiredMixin, UpdateView):
     model = Spot
     fields = ['name', 'description', 'zipcode', 'latitude', 'longitude']
     template_name = 'spots/spot_form.html'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user 
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'There was an error in your submission. Please check the form and try again.')
+        return redirect(self.request.path_info)
 
 class SpotDelete(LoginRequiredMixin, DeleteView):
     model = Spot
