@@ -41,7 +41,7 @@ def signup(request):
     form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form, 'error': error_message})
 
-
+@login_required
 def add_photo(request, spot_id):
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:

@@ -138,14 +138,14 @@ span.helptext {
     padding: 1.5rem;
 }
 
-h5 {
+h5 .card-subtitle mb-2 {
     text-align: center;
-    color: #3f4f0b;
+    color: rgb(209, 210, 207, 0.8);
     padding: 1rem;
     width: 6rem;
-    background-color: rgb(209, 210, 207, 0.8);
+    background-color: #3f4f0b;;
     border-style: solid;
-    border-color: #3a480b;
+    border-color: rgb(209, 210, 207, 0.8);
 }
 
 .card-body {
