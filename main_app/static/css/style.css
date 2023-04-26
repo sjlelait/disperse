@@ -1,5 +1,5 @@
 body {
-    background-image: url("https://disperse-sjl.s3.us-east-2.amazonaws.com/disperse_background.jpg");
+    background-image: url("https://disperse-sjl.s3.us-east-2.amazonaws.com/disperse_background.jpg?v=1");
     background-repeat: no-repeat;
     background-size: cover;
     min-height: calc(100vh - 3.75rem);
