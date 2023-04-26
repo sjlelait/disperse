@@ -75,13 +75,6 @@ main {
     color:#eef0e9;
 }
 
-.edit-delete-btns {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
 h1, h2, h3, h4, p {
     text-align: center;
     color: #2c3807;
