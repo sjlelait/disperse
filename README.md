@@ -1,5 +1,5 @@
 # Disperse
-A full-stack Django App for Wilderness lovers and adventurers. User's can login with Django's built-in authentication to keep track of their favorite camping sites. Disperse features a "find my location" option that aides in displaying a map of the area. Other features include local weather data fetched from Open WeatherAPI and photo upload capabilities. 
+A full-stack Django App for Wilderness lovers and adventurers. User's can login with Django's built-in authentication to keep track of their favorite camping sites. Disperse features a "find my location" option that aides in displaying a map of the area. Other features include local weather data fetched from WeatherAPI and photo upload capabilities. 
 
 ## Technologies Used
 - Django
@@ -9,7 +9,7 @@ A full-stack Django App for Wilderness lovers and adventurers. User's can login 
 - CSS
 - HTML
 - Bootstrap
-- Open WeatherAPI
+- WeatherAPI
 - Mapbox & Folium
 
 ## Preview
