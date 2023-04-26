@@ -1,8 +1,9 @@
 body {
-    min-height: calc(100vh - 3.75rem);
-    background-image: url("/media/spot_images/disperse-background.jpg");
+    background-image: url("https://disperse-sjl.s3.us-east-2.amazonaws.com/disperse_background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: calc(100vh - 3.75rem);
+    background-color: rgb(142, 123, 47);
 }
 
 .container {
