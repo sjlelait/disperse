@@ -31,7 +31,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 MAPBOX_ACCESS_TOKEN = os.environ['MAPBOX_ACCESS_TOKEN']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['disperse.herokuapp.com'] #cors
 
