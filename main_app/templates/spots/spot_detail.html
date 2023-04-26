@@ -6,60 +6,61 @@
 
 {% block content %}
 <div class="spot-detail">
-<h2 class="spot-title">{{ spot.name }}</h2>    
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="mx-auto" id="spot-description">
-                <h4>{{ spot.description }}</h4>
-                <div class="edit-delete-btns">
-                    <a href="{% url 'spot_update' spot.id %}">
-                        <button type="button" class="btn btn-secondary">Edit</button>
-                    </a>
-                    <a href="{% url 'spot_delete' spot.id %}">
-                        <button type="button" class="btn btn-secondary">Delete</button>
-                    </a>
-                </div>                
-            </div>            
-        </div>
-        <div class="col-md-6">
-            <div class="mx-auto" id="map" style="width: 20rem; height: 20rem; border-style: solid; border-color: #3a480b;">
-                <script>
-                    var spot = {
-                        latitude: {{ spot.latitude }},
-                        longitude: {{ spot.longitude }},
-                        name: '{{ spot.name }}'
-                    };
-                    // map
-                    console.log(spot.longitude)
+    <button class="btn btn-secondary" onclick="history.back()" style="margin: 2rem 0 0 0">Back</button>
+    <h2 class="spot-title" style="padding: 0 0 2rem 0">{{ spot.name }}</h2>    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mx-auto" id="spot-description">
+                    <h4>{{ spot.description }}</h4>
+                    <div class="edit-delete-btns">
+                        <a href="{% url 'spot_update' spot.id %}">
+                            <button type="button" class="btn btn-secondary">Edit</button>
+                        </a>
+                        <a href="{% url 'spot_delete' spot.id %}">
+                            <button type="button" class="btn btn-secondary">Delete</button>
+                        </a>
+                    </div>                
+                </div>            
+            </div>
+            <div class="col-md-6">
+                <div class="mx-auto" id="map" style="width: 20rem; height: 20rem; border-style: solid; border-color: #3a480b;">
+                    <script>
+                        var spot = {
+                            latitude: {{ spot.latitude }},
+                            longitude: {{ spot.longitude }},
+                            name: '{{ spot.name }}'
+                        };
+                        // map
+                        console.log(spot.longitude)
 
-                    var map = new mapboxgl.Map({
-                        container: 'map',
-                        style: 'mapbox://styles/mapbox/outdoors-v11',
-                        center: [{{ spot.longitude }}, {{ spot.latitude }}],
-                        zoom: 12,
-                        accessToken: '{{ MAPBOX_ACCESS_TOKEN }}'
-                    });
+                        var map = new mapboxgl.Map({
+                            container: 'map',
+                            style: 'mapbox://styles/mapbox/outdoors-v11',
+                            center: [{{ spot.longitude }}, {{ spot.latitude }}],
+                            zoom: 12,
+                            accessToken: '{{ MAPBOX_ACCESS_TOKEN }}'
+                        });
 
-                    map.addControl(new mapboxgl.NavigationControl({
-                        position: 'top-right'
-                        }));
-        
-                    // spot marker
-                    var marker = new mapboxgl.Marker()
-                        .setLngLat([{{ spot.longitude }}, {{ spot.latitude }}])
-                        .addTo(map);
-        
-                    // popup wth spot details
-                    var popup = new mapboxgl.Popup()
-                        .setHTML('<h3>{{spot.name}}</h3>')
-                        .setMaxWidth('300px');
-                    marker.setPopup(popup);
-                </script>
+                        map.addControl(new mapboxgl.NavigationControl({
+                            position: 'top-right'
+                            }));
+            
+                        // spot marker
+                        var marker = new mapboxgl.Marker()
+                            .setLngLat([{{ spot.longitude }}, {{ spot.latitude }}])
+                            .addTo(map);
+            
+                        // popup wth spot details
+                        var popup = new mapboxgl.Popup()
+                            .setHTML('<h3>{{spot.name}}</h3>')
+                            .setMaxWidth('300px');
+                        marker.setPopup(popup);
+                    </script>
+                </div>
             </div>
         </div>
-    </div>
-</div>    
+    </div>    
     <div class="weather-box">
         <div class="row">
             <h5 class="card-subtitle mb-2">3 Day Forecast</h5>
@@ -98,16 +99,16 @@
         </div>
         {% endfor %}
     </div>
-        <form 
-            action="{% url 'add_photo' spot.id %}" 
-            method="POST" 
-            class="card-panel" 
-            enctype="multipart/form-data"
-        >
-            {% csrf_token %}
-            <input type="file" name="photo-file">
-            <input class="btn btn-secondary" type="submit" value="Upload Photo">
-        </form>
-    </div>
+    <form 
+        action="{% url 'add_photo' spot.id %}" 
+        method="POST" 
+        class="card-panel" 
+        enctype="multipart/form-data"
+    >
+        {% csrf_token %}
+        <input type="file" name="photo-file">
+        <input class="btn btn-secondary" type="submit" value="Upload Photo">
+    </form>
+</div>
 {% endblock %}
 

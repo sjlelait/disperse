@@ -9,25 +9,26 @@
 {% endblock %}
 
 {% block content %}
-    {% if object %}
-        <h1>Update {{ object.name }}</h1>
-    {% else %}
-        <h1>Add A New Spot</h1>
-    {% endif %}
+<button class="btn btn-secondary" onclick="history.back()" style="margin: 2rem 0 0 0">Back</button>
+{% if object %}
+    <h1 style="padding: 0 0 2rem 0">Update {{ object.name }}</h1>
+{% else %}
+    <h1 style="padding: 0 0 2rem 0">Add A New Spot</h1>
+{% endif %}
 
-    <form method="POST" class="form">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-            <tr>
-                <td></td>
-                <td>                    
-                    <button id="find-location-btn" class="btn btn-secondary">Find My Location</button>
-                </td>
-            </tr>
-        </table>
-        <input type="submit" value="Submit" class="btn btn-secondary">
-    </form>
+<form method="POST" class="form">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td></td>
+            <td>                    
+                <button id="find-location-btn" class="btn btn-secondary">Find My Location</button>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Submit" class="btn btn-secondary">
+</form>
 <script>
     const findLocationBtn = document.querySelector('#find-location-btn');
     findLocationBtn.addEventListener('click', () => {
