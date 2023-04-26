@@ -26,6 +26,11 @@
     </div>
     {% endfor %}
 </div>
+<div class="text-center">
+    <a href="{% url 'spot_create' %}">
+      <button type="button" class="btn btn-secondary btn-lg">Add A Spot</button>
+    </a>
+</div>
 {% else %}
 <div class="home-buttons">
     <h2>You don't have any spots yet.</h2>
