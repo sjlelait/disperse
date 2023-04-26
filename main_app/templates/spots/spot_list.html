@@ -17,7 +17,7 @@
                     {% if spot.photo_set.exists %}
                     <img class="card-img-top img-fluid" src="{{ spot.photo_set.first.url|safe }}" alt="{{ spot.name }}" class="responsive-img card-panel">
                     {% else %}
-                    <img class="card-img-top img-fluid" style="object-position: bottom left"src="/media/spot_images/camping_default.webp" alt="{{ spot.name }}">
+                    <img class="card-img-top img-fluid" style="object-position: bottom left"src="https://disperse-sjl.s3.us-east-2.amazonaws.com/camping_default.webp?v=1" alt="{{ spot.name }}">
                     {% endif %}            
                 </a>
             </div>

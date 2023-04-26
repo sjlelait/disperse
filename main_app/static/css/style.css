@@ -3,7 +3,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: calc(100vh - 3.75rem);
-    background-color: rgb(142, 123, 47);
+    background-color: rgb(184, 184, 183);
 }
 
 .container {
@@ -73,6 +73,13 @@ main {
     background-color:#3a480b;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     color:#eef0e9;
+}
+
+.edit-delete-btns {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 h1, h2, h3, h4, p {
@@ -147,6 +154,7 @@ span.helptext {
     border-color: #3a480b;
     border-style: solid;
     padding: 1.5rem;
+    
 }
 
 div.photo-section, div.weather-box {
