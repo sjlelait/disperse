@@ -15,10 +15,15 @@ A full-stack Django App for Wilderness lovers and adventurers. User's can login 
 ## Preview
 Home Page
 ![Alt text](media/spot_images/login.png)
+![Alt text](media/spot_images/list.png)
+![Alt text](media/spot_images/detail.png)
+![Alt text](media/spot_images/photo.png)
 
 ## Getting started
 [Click Here](https://disperse.herokuapp.com/) to see the deployed app!
 
-## Coming soon:
-- Map features such as layers for trail conditions
+## Coming soon
+### Map features such as:
+- Layers for trail conditions
 - Current fire restrictions
+- Distances to water stations/showers, etc.
