@@ -1,9 +1,8 @@
 body {
-    background-image: url("/media/spot_images/disperse_background.jpg");
+    min-height: calc(100vh - 3.75rem);
+    background-image: url("/media/spot_images/disperse-background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #575856;
-    min-height: calc(100vh - 3.75rem);
 }
 
 .container {
