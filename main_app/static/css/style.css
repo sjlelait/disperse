@@ -70,6 +70,7 @@ main {
 }
 
 .btn {
+    font-family: 'Montserrat', sans-serif;
     background-color:#3a480b;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     color:#eef0e9;
