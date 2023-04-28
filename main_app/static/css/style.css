@@ -113,8 +113,9 @@ div#spot-card > div.col-sm-6 > div.card > div.card-body {
     padding: 2rem;
 }
 
-ul {
+ul, li {
     list-style-type: none;
+    background-color:rgba(233, 233, 234, 0.7) !important;
 }
 
 label {
@@ -122,13 +123,6 @@ label {
     width: 6.25rem;
 }
 
-input, textarea {
-    background-color: rgb(220, 224, 227);
-}
-
-span.helptext {
-    background-color:rgba(233, 233, 234, 0.7) !important; 
-}
 #spot-description {
     text-align: center;
 }
@@ -184,6 +178,14 @@ h3 {
     color: #3f4f0b !important;
     padding: 1rem;
     width: 100%;
+}
+
+form, li, input, textarea, .alert.alert-danger {
+    background-color: rgb(220, 224, 227);
+}
+
+span.helptext {
+    background-color:rgba(233, 233, 234, 0.7) !important; 
 }
 
 .footer {
