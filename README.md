@@ -28,3 +28,4 @@ Home Page
 - Current fire restrictions
 - Distances to water stations/showers, etc.
 ### Ability to share spots with other users
+### Ability to delete uploaded photos
