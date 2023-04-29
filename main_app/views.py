@@ -99,7 +99,8 @@ class SpotDetail(LoginRequiredMixin, DetailView):
         forecast = []
         for day in data["forecast"]["forecastday"]:
             forecast_day = {}
-            forecast_day["date"] = datetime.datetime.strptime(day["date"], "%Y-%m-%d")
+            forecast_day["date"] = datetime.datetime.strptime(day["date"], "%Y-%m-%d").strftime("%m/%d/%Y")
+            print(forecast_day["date"])
             forecast_day["icon"] = day["day"]["condition"]["icon"]
             forecast_day["condition"] = day["day"]["condition"]["text"]
             forecast_day["high"] = day["day"]["maxtemp_f"]
@@ -108,7 +109,7 @@ class SpotDetail(LoginRequiredMixin, DetailView):
             forecast_day["sunset"] = day["astro"]["sunset"]
             forecast.append(forecast_day)
 
-        context['forecast'] = data['forecast']['forecastday']
+        context['forecast'] = data["forecast"]["forecastday"]
         return context
 
         

@@ -114,7 +114,7 @@ h4.card-title {
     object-fit: cover;
     border-style: solid;
     border-color: #3a480b;
-    border-width: small;
+    border-width: medium;
     border-radius: .25rem;
 }
 
