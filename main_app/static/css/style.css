@@ -76,6 +76,10 @@ main {
     color:#eef0e9;
 }
 
+.edit-delete-btns {
+    margin-bottom: 2rem;
+}
+
 h1, h2, h3, h4, p {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
@@ -94,8 +98,15 @@ h4.card-title {
     padding: 1rem;
 }
 
-.spot_description {
+h4 .spot_description {
     text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+    background-color: rgb(209, 210, 207, 0.8);
+    padding: 1rem;
+    margin: 1rem;
+    border-style: solid;
+    border-color: #3a480b;
+    border-width: medium;
+    border-radius: .5rem;
 }
 
 .card-img-top {
