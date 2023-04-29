@@ -98,7 +98,7 @@ h4.card-title {
     padding: 1rem;
 }
 
-.spot_description {
+.spot_description, form {
     background-color: rgb(209, 210, 207, 0.8);
     padding: 1rem;
     margin: 1rem;
@@ -121,11 +121,6 @@ h4.card-title {
 
 div#spot-card > div.col-sm-6 > div.card > div.card-body {
     padding: 2rem;
-}
-
-label {
-    background-color:rgba(233, 233, 234, 0.7);
-    width: 6.25rem;
 }
 
 #spot-description {
@@ -185,12 +180,12 @@ h3 {
     width: 100%;
 }
 
-form, input, textarea, .alert.alert-danger {
+input, textarea, .alert.alert-danger, span.helptext, label {
     background-color: rgb(220, 224, 227, .7);
 }
 
-span.helptext {
-    background-color:rgba(233, 233, 234, 0.7) !important; 
+label {
+    width: 6.3rem;
 }
 
 .footer {
