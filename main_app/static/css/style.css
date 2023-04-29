@@ -184,10 +184,6 @@ input, textarea, .alert.alert-danger, span.helptext, label {
     background-color: rgb(220, 224, 227, .7);
 }
 
-label {
-    width: 6.3rem;
-}
-
 .footer {
     position: fixed;
     text-align: center;
