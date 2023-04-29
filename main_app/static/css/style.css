@@ -98,15 +98,9 @@ h4.card-title {
     padding: 1rem;
 }
 
-h4 .spot_description {
+.spot_description {
     text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
-    background-color: rgb(209, 210, 207, 0.8);
-    padding: 1rem;
-    margin: 1rem;
-    border-style: solid;
-    border-color: #3a480b;
-    border-width: medium;
-    border-radius: .5rem;
+    background-color: rgba(233, 233, 234, 0.7);
 }
 
 .card-img-top {
@@ -122,11 +116,6 @@ h4 .spot_description {
 
 div#spot-card > div.col-sm-6 > div.card > div.card-body {
     padding: 2rem;
-}
-
-ul, li {
-    list-style-type: none;
-    background-color:rgba(233, 233, 234, 0.7) !important;
 }
 
 label {
@@ -191,8 +180,8 @@ h3 {
     width: 100%;
 }
 
-form, li, input, textarea, .alert.alert-danger {
-    background-color: rgb(220, 224, 227);
+form, input, textarea, .alert.alert-danger {
+    background-color: rgb(220, 224, 227, .7);
 }
 
 span.helptext {
