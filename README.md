@@ -9,8 +9,10 @@ A full-stack Django App for wilderness lovers and adventurers. User's can login 
 - CSS
 - HTML
 - Bootstrap
+- Amazon AWS
 - WeatherAPI
 - Mapbox & Folium
+- Heroku
 
 ## Preview
 Home Page
