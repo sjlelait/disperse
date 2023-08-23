@@ -87,10 +87,13 @@ DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
     'NAME': os.environ['NAME'],
-    'USER': os.environ['USER'],
+    'USER': 'sjlelait',
     'PASSWORD': os.environ['PASSWORD'],
     'HOST': 'ep-curly-recipe-25903731.us-east-2.aws.neon.tech',
     'PORT': '5432',
+    'OPTIONS': {
+            'sslmode': 'require',
+        },
   }
 }
 
@@ -136,7 +139,7 @@ LOGOUT_REDIRECT_URL = '/'
 #adding for image use
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
