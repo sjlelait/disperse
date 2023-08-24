@@ -1,5 +1,5 @@
 body {
-    background-image: url("https://disperse-sjl.s3.us-east-2.amazonaws.com/disperse_background.jpg?v=1");
+    background-image: url("media/spot_images/disperse_background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     min-height: calc(100vh - 3.75rem);
@@ -139,6 +139,26 @@ h4.card-title {
 
 div#spot-card > div.col-sm-6 > div.card > div.card-body {
     padding: 2rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+label {
+    background-color:rgba(233, 233, 234, 0.7);
+    width: 6.25rem;
+}
+
+input, textarea {
+    background-color: rgb(220, 224, 227);
+}
+
+span.helptext {
+    background-color:rgba(233, 233, 234, 0.7) !important; 
+}
+#spot-description {
+    text-align: center;
 }
 
 #spot-description {
