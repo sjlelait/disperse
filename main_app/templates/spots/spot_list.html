@@ -34,10 +34,11 @@
 {% else %}
 <div class="home-buttons">
     <div class="no_spots">
-        <h2>Welcome {{user.username}}! You don't have any spots yet.</h2>
-        <h3>That's okay, add one to get started!</h3>
+        <h2>Welcome {{user.username}}!</h2>
+        <h3>Let's start tracking your favorite dispersed camping locations.</h3>
+        <h3></h3>
         <a href="{% url 'spot_create' %}">
-            <button type="button" class="btn btn-secondary btn-lg btn-block">Add A Spot</button>
+            <button type="button" class="btn btn-secondary btn-lg btn-block">Add Your First Spot</button>
         </a>
     </div>
 </div>
