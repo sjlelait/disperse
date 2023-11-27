@@ -67,7 +67,7 @@
             },
             (error) => {
                 if (error.code === error.PERMISSION_DENIED) {
-                    alert('Geolocation access was denied by the user.');
+                    alert('Geolocation access was denied by the user, please enter manually.');
                 } else {
                     console.error('Error getting geolocation:', error);
                     alert('Error getting geolocation. Please try again or check your browser settings.');

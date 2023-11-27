@@ -157,6 +157,7 @@ input, textarea {
 span.helptext {
     background-color:rgba(233, 233, 234, 0.7) !important; 
 }
+
 #spot-description {
     text-align: center;
 }
@@ -235,8 +236,8 @@ input, textarea, .alert.alert-danger, span.helptext, label {
     color:#c2cbac;
 }
 
-@media (max-width: 420px) {
-    input, textarea, .alert.alert-danger, span.helptext, label {
-        max-width: 10rem !important;
+@media (max-width: 768px) {
+    input, textarea, .alert.alert-danger, span.helptext, label, .no_spots {
+        max-width: 12rem !important;
     }
 }
