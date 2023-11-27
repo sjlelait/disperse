@@ -50,16 +50,33 @@
     </table>
     <input type="submit" value="Submit" class="btn btn-secondary">
 </form>
+
 <script>
     const findLocationBtn = document.querySelector('#find-location-btn');
-    findLocationBtn.addEventListener('click', () => {
+
+    findLocationBtn.addEventListener('click', (event) => {
         event.preventDefault();
-        navigator.geolocation.getCurrentPosition((position) => {
-            const latitudeField = document.querySelector('#id_latitude');
-            const longitudeField = document.querySelector('#id_longitude');
-            latitudeField.value = position.coords.latitude.toFixed(7);
-            longitudeField.value = position.coords.longitude.toFixed(7);
-        });
-    });
+
+        if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const latitudeField = document.querySelector('#id_latitude');
+                const longitudeField = document.querySelector('#id_longitude');
+                latitudeField.value = position.coords.latitude.toFixed(7);
+                longitudeField.value = position.coords.longitude.toFixed(7);
+            },
+            (error) => {
+                if (error.code === error.PERMISSION_DENIED) {
+                    alert('Geolocation access was denied by the user.');
+                } else {
+                    console.error('Error getting geolocation:', error);
+                    alert('Error getting geolocation. Please try again or check your browser settings.');
+                }
+            }
+        );
+    } else {
+        alert('Geolocation is not supported by your browser.');
+    }
+});
 </script>
 {% endblock %}
