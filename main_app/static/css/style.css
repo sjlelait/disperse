@@ -234,3 +234,9 @@ input, textarea, .alert.alert-danger, span.helptext, label {
 .footer-txt {
     color:#c2cbac;
 }
+
+@media (max-width: 420px) {
+    input, textarea, .alert.alert-danger, span.helptext, label {
+        max-width: 10rem !important;
+    }
+}
